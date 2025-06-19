@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { User, Camera, Lock, Mail, Edit3, Save, X, Upload, ArrowLeft } from 'lucide-react';
 import { updateProfile, updateAvatar, changePassword, getCurrentUser } from '../store/slices/authSlice';
+import { getImageUrl } from '../utils/imageUtils';
 
 const Profile = () => {
   const dispatch = useDispatch();
@@ -77,13 +78,14 @@ const Profile = () => {
       console.error('Profile update failed:', error);
     }
   };
-
   const handleAvatarSubmit = async () => {
     if (selectedFile) {
       try {
         await dispatch(updateAvatar(selectedFile)).unwrap();
         setSelectedFile(null);
         setAvatarPreview(null);
+        // Refresh current user data to get updated avatar
+        dispatch(getCurrentUser());
       } catch (error) {
         console.error('Avatar update failed:', error);
       }
@@ -169,11 +171,13 @@ const Profile = () => {
               <h2 className="text-xl font-semibold text-gray-900 mb-6">Profile Picture</h2>
               
               <div className="text-center">
-                <div className="relative inline-block">
-                  <img
-                    src={avatarPreview || user?.avatar || `https://ui-avatars.com/api/?name=${user?.fullName}&background=3b82f6&color=fff&size=200`}
+                <div className="relative inline-block">                  <img
+                    src={avatarPreview || getImageUrl(user?.avatar) || `https://ui-avatars.com/api/?name=${encodeURIComponent(user?.fullName || '')}&background=3b82f6&color=fff&size=200`}
                     alt="Profile"
                     className="w-32 h-32 rounded-full object-cover border-4 border-blue-100"
+                    onError={(e) => {
+                      e.target.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(user?.fullName || 'User')}&background=3b82f6&color=fff&size=200`;
+                    }}
                   />
                   <label
                     htmlFor="avatar-upload"

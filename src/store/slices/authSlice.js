@@ -225,12 +225,9 @@ const authSlice = createSlice({
       .addCase(updateAvatar.pending, (state) => {
         state.loading = true;
         state.error = null;
-      })
-      .addCase(updateAvatar.fulfilled, (state, action) => {
+      })      .addCase(updateAvatar.fulfilled, (state, action) => {
         state.loading = false;
-        if (state.user) {
-          state.user.avatar = action.payload;
-        }
+        state.user = action.payload;
         state.error = null;
       })
       .addCase(updateAvatar.rejected, (state, action) => {

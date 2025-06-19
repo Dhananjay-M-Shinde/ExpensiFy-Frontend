@@ -8,6 +8,7 @@ import ExpenseList from '../components/expense/ExpenseList';
 import AddExpenseModal from '../components/expense/AddExpenseModal';
 import ExpenseStats from '../components/expense/ExpenseStats';
 import DaywiseExpenseChart from '../components/charts/DaywiseExpenseChart';
+import { getImageUrl } from '../utils/imageUtils';
 
 const Dashboard = () => {
   const dispatch = useDispatch();
@@ -41,14 +42,12 @@ const Dashboard = () => {
                 <h1 className="text-xl font-bold text-gray-900">ExpensiFy</h1>
               </div>
             </div>
-              <div className="flex items-center space-x-4">
-              <div className="flex items-center space-x-2 cursor-pointer hover:bg-gray-50 rounded-lg p-2 transition-colors" onClick={() => navigate('/profile')}>
-                <img
-                  src={user?.avatar || '/default-avatar.png'}
+              <div className="flex items-center space-x-4">              <div className="flex items-center space-x-2 cursor-pointer hover:bg-gray-50 rounded-lg p-2 transition-colors" onClick={() => navigate('/profile')}>                <img
+                  src={getImageUrl(user?.avatar) || `https://ui-avatars.com/api/?name=${encodeURIComponent(user?.fullName || '')}&background=3b82f6&color=fff&size=64`}
                   alt="Profile"
                   className="w-8 h-8 rounded-full object-cover"
                   onError={(e) => {
-                    e.target.src = 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80';
+                    e.target.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(user?.fullName || 'User')}&background=3b82f6&color=fff&size=64`;
                   }}
                 />
                 <span className="text-sm font-medium text-gray-700">{user?.fullName}</span>
