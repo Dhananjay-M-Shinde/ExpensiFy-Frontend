@@ -1,38 +1,54 @@
 # ExpensiFy Frontend
 
-A modern, responsive React frontend for the ExpensiFy personal expense management application.
+A modern, responsive React frontend for personal expense management with comprehensive analytics and profile management.
 
-## Features
+## 🌟 Features
 
-- **User Authentication**: Secure login and registration with JWT tokens
-- **Expense Management**: Add, edit, delete, and view expenses
-- **Category Tracking**: Organize expenses by categories
-- **Responsive Design**: Works on desktop, tablet, and mobile devices
-- **Real-time Stats**: View expense statistics and category breakdowns
-- **Modern UI**: Clean design with Tailwind CSS
+- **User Authentication**: Secure login/registration with JWT tokens and refresh token handling
+- **Profile Management**: Complete user profile with avatar upload and password change
+- **Expense Management**: Full CRUD operations for expenses with category tracking
+- **Interactive Analytics**: Beautiful daywise expense charts with hover effects and breakdowns
+- **Responsive Design**: Mobile-first design that works seamlessly across all devices
+- **Real-time Updates**: Live expense statistics and category breakdowns
+- **Modern UI/UX**: Clean glassmorphism design with Tailwind CSS and smooth animations
+- **File Upload**: Drag-and-drop avatar upload with preview functionality
+- **Error Handling**: Comprehensive error handling with toast notifications
 
-## Tech Stack
+## 🔧 Tech Stack
 
-- **React 18**: Frontend framework
-- **Redux Toolkit**: State management
-- **React Router**: Client-side routing
-- **Axios**: HTTP client
-- **React Hook Form**: Form handling
-- **Yup**: Form validation
-- **Tailwind CSS**: Styling
-- **Lucide React**: Icons
-- **React Hot Toast**: Notifications
-- **Vite**: Build tool
+- **React 18**: Modern frontend framework with hooks
+- **Redux Toolkit**: Efficient state management with RTK Query
+- **React Router Dom**: Client-side routing and navigation
+- **Axios**: HTTP client with interceptors for auth
+- **React Hook Form**: Performant form handling with validation
+- **Yup**: Schema validation for forms
+- **Tailwind CSS**: Utility-first CSS framework
+- **Lucide React**: Beautiful icon library
+- **React Hot Toast**: Elegant notification system
+- **Vite**: Lightning-fast build tool and dev server
 
-## Prerequisites
+## 📊 Key Components
+
+- **Dashboard**: Central hub with expense overview and quick actions
+- **Profile Management**: Complete user profile with avatar and account settings
+- **Expense Analytics**: Interactive SVG charts with daywise expense visualization
+- **Expense List**: Comprehensive expense management with filtering
+- **Authentication**: Secure login/register forms with validation
+
+## 🚀 Prerequisites
 
 - Node.js (version 16 or higher)
-- npm or yarn
-- ExpensiFy Backend running on `http://localhost:8000`
+- npm or yarn package manager
+- ExpensiFy Backend API running on `http://localhost:8000`
 
-## Installation
+## 📦 Installation
 
-1. Clone the repository
+1. Clone the repository:
+   ```bash
+   git clone <repository-url>
+   cd ExpensiFy-Frontend
+   ```
+
 2. Install dependencies:
    ```bash
    npm install
@@ -45,20 +61,78 @@ A modern, responsive React frontend for the ExpensiFy personal expense managemen
 
 4. Open your browser and navigate to `http://localhost:5173`
 
-## Available Scripts
+## 📝 Available Scripts
 
-- `npm run dev` - Start development server
-- `npm run build` - Build for production
-- `npm run preview` - Preview production build
-- `npm run lint` - Run ESLint+ Vite
+- `npm run dev` - Start development server with hot reload
+- `npm run build` - Build optimized production bundle
+- `npm run preview` - Preview production build locally
+- `npm run lint` - Run ESLint for code quality
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 🏗️ Project Structure
 
-Currently, two official plugins are available:
+```
+src/
+├── components/
+│   ├── auth/           # Authentication components
+│   ├── charts/         # Data visualization components
+│   ├── expense/        # Expense management components
+│   └── ui/            # Reusable UI components
+├── pages/             # Main application pages
+├── services/          # API services and utilities
+├── store/             # Redux store and slices
+└── utils/             # Helper functions and utilities
+```
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🎯 Features Implemented
 
-## Expanding the ESLint configuration
+### Authentication & Profile
+- ✅ User registration with avatar upload
+- ✅ Secure login with JWT tokens
+- ✅ Token refresh mechanism
+- ✅ Profile view and edit functionality
+- ✅ Avatar upload and preview
+- ✅ Password change with validation
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Expense Management
+- ✅ Add new expenses with categories
+- ✅ Edit existing expenses
+- ✅ Delete expenses with confirmation
+- ✅ View expense history
+- ✅ Category-wise organization
+
+### Analytics & Visualization
+- ✅ Interactive daywise expense chart
+- ✅ Hover effects and tooltips
+- ✅ Responsive chart design
+- ✅ Summary statistics cards
+- ✅ Mobile-optimized charts
+
+### UI/UX Enhancements
+- ✅ Glassmorphism design elements
+- ✅ Smooth animations and transitions
+- ✅ Mobile-responsive layouts
+- ✅ Toast notifications
+- ✅ Loading states and error handling
+
+## 🌐 API Integration
+
+The frontend integrates with the ExpensiFy backend API for:
+- User authentication and profile management
+- Expense CRUD operations
+- File uploads for avatars
+- Daywise expense analytics
+
+## 📱 Mobile Responsiveness
+
+The application is fully responsive with:
+- Adaptive layouts for all screen sizes
+- Touch-friendly interface elements
+- Optimized chart displays for mobile
+- Reduced spacing and font sizes on smaller screens
+
+## 🔐 Security Features
+
+- JWT token management with automatic refresh
+- Protected routes requiring authentication
+- Secure API communication with interceptors
+- Input validation and sanitization
